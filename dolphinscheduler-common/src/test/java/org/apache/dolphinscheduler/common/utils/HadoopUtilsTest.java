@@ -128,6 +128,18 @@ public class HadoopUtilsTest {
     }
 
     @Test
+    public void getHdfsResourceFileName() {
+        String result = hadoopUtils.getHdfsResourceFileName("11000","aa.txt");
+        Assert.assertEquals("/dolphinscheduler/11000/resources/aa.txt", result);
+    }
+
+    @Test
+    public void getHdfsUdfFileName() {
+        String result = hadoopUtils.getHdfsFileName(ResourceType.UDF,"11000","aa.txt");
+        Assert.assertEquals("/dolphinscheduler/11000/udfs/aa.txt", result);
+    }
+
+    @Test
     public void isYarnEnabled() {
         boolean result = hadoopUtils.isYarnEnabled();
         Assert.assertEquals(false, result);
@@ -175,6 +187,12 @@ public class HadoopUtilsTest {
     @Test
     public void getApplicationUrl(){
         String application_1516778421218_0042 = hadoopUtils.getApplicationUrl("application_1529051418016_0167");
+        logger.info(application_1516778421218_0042);
+    }
+
+    @Test
+    public void getJobHistoryUrl(){
+        String application_1516778421218_0042 = hadoopUtils.getJobHistoryUrl("application_1529051418016_0167");
         logger.info(application_1516778421218_0042);
     }
 
